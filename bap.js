@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       child && _lives.removeChild(child)
       lives--
       restart()
-      var restartpause = await pause(2000)
+      var restartpause = await pause(3000)
       await moveBall()
     }
 
