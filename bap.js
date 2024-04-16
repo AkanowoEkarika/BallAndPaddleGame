@@ -33,11 +33,16 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   function restart(){
-    ballSpeedX = 1;
+    var directions = [1,-1]
+    var randomIndex = Math.floor(Math.random() * directions.length);
+    
+    // Return the element at the random index
+    var dir = directions[randomIndex];
+    ballSpeedX = dir;
     ballSpeedY = 0;
 
     ball.style.top = 0 + 'px';
-    ball.style.left = (vw/2) + 'px';
+    ball.style.left = (r/2) + 'px';
   }
 
   setInterval(10000, ()=>{
@@ -61,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if(lives<=0){
       var gameover = document.getElementById('gameover');
       gameover.style.display = 'block'
-      //return "Game Over"
+      return "Game Over"
     }
 
     // Reverse direction when ball reaches bottom
@@ -90,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     // Reverse direction when ball reaches the right wall
-    if (ballPositionX >= vw && started == true) {
+    if (ballPositionX >= r && started == true) {
       ballSpeedX -= 1;
       // ballSpeedY += 1;
     }
